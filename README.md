@@ -1,1 +1,1 @@
-[![Styled with 🎨 CSS](https://a.b-b.top/badge.svg?repo=Kanboard-Customizer-Themes&label=Styled%20with%20🎨%20CSS&background_color=2196f3&background_color2=42a5f5&utm_source=github&utm_medium=readme&utm_campaign=badge)](https://a.b-b.top)
+[![Styled with CSS](https://a.b-b.top/badge.svg?repo=Kanboard-Customizer-Themes&label=Styled%20with%20CSS&background_color=2196f3&background_color2=42a5f5&utm_source=github&utm_medium=readme&utm_campaign=badge)](https://a.b-b.top)
