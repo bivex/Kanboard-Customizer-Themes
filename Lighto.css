@@ -1,0 +1,729 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Lighto - Light Theme for Kanboard
+ * Designed to complement the default Kanboard CSS with a clean, light aesthetic.
+ */
+
+:root {
+    --lighto-bg-primary: #ffffff;
+    --lighto-bg-secondary: #f9f9f9;
+    --lighto-text-primary: #333333;
+    --lighto-text-secondary: #555555;
+    --lighto-border-color: #e0e0e0;
+    --lighto-link-color: #007bff;
+    --lighto-link-hover-color: #0056b3;
+    --lighto-header-bg: #f8f9fa;
+    --lighto-sidebar-bg: #ffffff;
+    --lighto-card-bg: #ffffff;
+    --lighto-card-border: #e0e0e0;
+    --lighto-button-primary-bg: #007bff;
+    --lighto-button-primary-text: #ffffff;
+    --lighto-button-primary-hover-bg: #0056b3;
+    /* Font Family Stack */
+    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    /* Typography Scale (Modular Scale: 1.125 - Major Second) */
+    --font-size-xs: 0.75rem;      /* 12px */
+    --font-size-sm: 0.875rem;     /* 14px */
+    --font-size-base: 1rem;       /* 16px */
+    --font-size-md: 1.125rem;     /* 18px */
+    --font-size-lg: 1.25rem;      /* 20px */
+    --font-size-xl: 1.5rem;       /* 24px */
+    --font-size-2xl: 1.75rem;     /* 28px */
+    --font-size-3xl: 2rem;        /* 32px */
+    
+    /* Line Heights for Optimal Readability */
+    --line-height-tight: 1.25;
+    --line-height-base: 1.5;
+    --line-height-relaxed: 1.625;
+    --line-height-loose: 1.75;
+    
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Spacing Scale (Based on 0.5rem increments) */
+    --spacing-xs: 0.25rem;    /* 4px */
+    --spacing-sm: 0.5rem;     /* 8px */
+    --spacing-md: 0.75rem;    /* 12px */
+    --spacing-lg: 1rem;       /* 16px */
+    --spacing-xl: 1.5rem;     /* 24px */
+    --spacing-2xl: 2rem;      /* 32px */
+    --spacing-3xl: 3rem;      /* 48px */
+    
+    /* Letter Spacing for Better Readability */
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.025em;
+    --letter-spacing-wider: 0.05em;
+}
+
+/* Mobile-first responsive typography adjustments */
+@media (max-width: 480px) {
+    :root {
+        --font-size-base: 0.875rem;   /* 14px on mobile */
+        --font-size-lg: 1.125rem;     /* 18px on mobile */
+        --font-size-xl: 1.25rem;      /* 20px on mobile */
+        --font-size-2xl: 1.5rem;      /* 24px on mobile */
+        --font-size-3xl: 1.75rem;     /* 28px on mobile */
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --font-size-base: 1.125rem;   /* 18px on desktop */
+        --font-size-lg: 1.375rem;     /* 22px on desktop */
+        --font-size-xl: 1.625rem;     /* 26px on desktop */
+        --font-size-2xl: 1.875rem;    /* 30px on desktop */
+        --font-size-3xl: 2.25rem;     /* 36px on desktop */
+    }
+}
+
+/* ========================================
+   BASE TYPOGRAPHY RESET & FOUNDATION
+   ======================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%; /* 16px base */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-base);
+    letter-spacing: var(--letter-spacing-normal);
+    background-color: var(--lighto-bg-secondary) !important;
+    color: var(--lighto-text-primary);
+}
+
+/* ========================================
+   HEADING HIERARCHY WITH VERTICAL RHYTHM
+   ======================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--lighto-text-primary);
+}
+
+h1 {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-2xl);
+}
+
+h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xl);
+}
+
+h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-lg);
+}
+
+h4 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-md);
+}
+
+h5 {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-sm);
+}
+
+h6 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ========================================
+   PARAGRAPH & TEXT ELEMENTS
+   ======================================== */
+p {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--lighto-text-primary);
+}
+
+small {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-base);
+}
+
+strong, b {
+    font-weight: var(--font-weight-semibold);
+}
+
+em, i {
+    font-style: italic;
+}
+
+/* ========================================
+   LINKS WITH PROPER TYPOGRAPHY
+   ======================================== */
+a {
+    color: var(--lighto-link-color);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+    color: var(--lighto-link-hover-color);
+    text-decoration: underline;
+}
+
+/* ========================================
+   FORM ELEMENTS WITH CONSISTENT TYPOGRAPHY
+   ======================================== */
+label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-base);
+    color: var(--lighto-text-primary);
+    display: block;
+    margin: var(--spacing-lg) 0 var(--spacing-xs) 0;
+    cursor: pointer;
+}
+
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="text"]:not(.input-addon-field) {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-base);
+    color: var(--lighto-text-primary);
+    border: 2px solid var(--lighto-border-color);
+    border-radius: 4px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: 0;
+    max-width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--lighto-link-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+textarea {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-base);
+    color: var(--lighto-text-primary);
+    border: 2px solid var(--lighto-border-color);
+    border-radius: 4px;
+    padding: var(--spacing-md);
+    max-width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--lighto-link-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+select {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-base);
+    color: var(--lighto-text-primary);
+    border: 2px solid var(--lighto-border-color);
+    border-radius: 4px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--lighto-bg-primary);
+    max-width: 100%;
+    min-width: 200px;
+}
+
+/* ========================================
+   BUTTON TYPOGRAPHY & SPACING
+   ======================================== */
+.btn {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-wide);
+    text-align: center;
+    text-transform: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: var(--spacing-md) var(--spacing-xl);
+    margin: 0;
+    border: 1px solid var(--lighto-border-color);
+    background: var(--lighto-bg-primary);
+    color: var(--lighto-text-primary);
+    transition: all 0.2s ease;
+    min-height: 44px; /* Touch-friendly */
+}
+
+.btn-blue {
+    background: var(--lighto-button-primary-bg);
+    border: none;
+    color: var(--lighto-button-primary-text);
+    font-weight: var(--font-weight-medium);
+}
+
+.btn-blue:focus,
+.btn-blue:hover {
+    background: var(--lighto-button-primary-hover-bg);
+    border: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-red {
+    background: #900;
+    border: none;
+    color: #fff;
+    font-weight: var(--font-weight-medium);
+}
+
+.btn-red:focus,
+.btn-red:hover {
+    background: #600;
+    border: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   SPECIALIZED COMPONENT TYPOGRAPHY
+   ======================================== */
+
+/* Modal Typography */
+div#modal-box {
+    width: max-content !important;
+}
+
+#modal-header {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    margin: var(--spacing-sm) 0 var(--spacing-lg) 0;
+    color: var(--lighto-text-primary);
+}
+
+#modal-content {
+    padding: 0 var(--spacing-xl);
+}
+
+/* Logo and Title Typography */
+.logo a {
+    opacity: 1;
+    color: inherit;
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+}
+
+.title-container .logo {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.title-container .title:before {
+    font-family: FontAwesome;
+    content: "\f054";
+    display: inline-block;
+    padding-right: var(--spacing-xs);
+    vertical-align: middle;
+    font-size: 0.6em;
+    color: var(--lighto-text-secondary);
+}
+
+#task-summary h2:before {
+    font-family: FontAwesome;
+    content: "\f017";
+    display: inline-block;
+    padding-right: var(--spacing-sm);
+    vertical-align: middle;
+    font-size: 0.6em;
+    color: var(--lighto-text-secondary);
+}
+
+/* Navigation and Sidebar Typography */
+.sidebar > ul li.active a {
+    color: var(--lighto-link-color);
+    font-weight: var(--font-weight-semibold);
+}
+
+.sidebar > ul li.active {
+    border-left: 5px solid var(--lighto-link-color);
+    padding-left: var(--spacing-sm);
+}
+
+/* Table Typography */
+.table-list-header {
+    background: var(--lighto-header-bg);
+    border-color: var(--lighto-border-color);
+    border-bottom: 1px solid #efefef;
+}
+
+.table-list-header .table-list-header-count {
+    margin-left: var(--spacing-lg);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+}
+
+.table-list-row {
+    padding: var(--spacing-lg) var(--spacing-lg);
+    border-color: var(--lighto-card-border);
+}
+
+.table-list-row .table-list-details {
+    line-height: var(--line-height-base);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Form Help Text */
+.form-help {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-base);
+    color: var(--lighto-text-secondary);
+    font-style: italic;
+    margin-top: var(--spacing-sm);
+}
+
+.form-required {
+    color: #900;
+    font-weight: var(--font-weight-medium);
+}
+
+/* Activity and Comments Typography */
+.activity-event {
+    border-bottom: 1px solid var(--lighto-card-border);
+    padding: var(--spacing-md);
+    overflow: auto;
+    background: var(--lighto-card-bg);
+}
+
+.activity-title {
+    border: none;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-base);
+}
+
+.comment-sorting {
+    font-size: var(--font-size-xs);
+    color: var(--lighto-text-secondary);
+}
+
+/* Task and Project Typography */
+.task-show-title h2,
+#task-summary h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--lighto-text-primary);
+    margin: var(--spacing-lg) 0 var(--spacing-xl) 0;
+}
+
+.task-board-title {
+    margin: var(--spacing-sm) 0 var(--spacing-xl) 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+}
+
+.project-overview-column strong {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--lighto-text-primary);
+}
+
+/* Tag and Category Typography */
+.task-tags li {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-color: rgba(102, 102, 102, 0.5);
+    color: var(--lighto-text-secondary);
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    border-radius: 3px;
+}
+
+.task-board-category {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS & UTILITIES
+   ======================================== */
+
+/* Responsive Layout Adjustments */
+.sidebar-content {
+    width: calc(100% - 240px);
+}
+
+@media (max-width: 480px) {
+    .sidebar-content {
+        width: 100%;
+    }
+    
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--font-size-sm);
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+        font-size: var(--font-size-base); /* Prevent zoom on iOS */
+    }
+}
+
+/* Text Utility Classes */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-base { line-height: var(--line-height-base); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+
+/* ========================================
+   REMAINING ORIGINAL STYLES (PRESERVED)
+   ======================================== */
+/* Header */
+header, .page-header {
+    background-color: var(--lighto-header-bg);
+    border-color: var(--lighto-border-color);
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--lighto-sidebar-bg);
+    border-color: var(--lighto-border-color);
+}
+
+.sidebar > ul li.active a {
+    color: var(--lighto-link-color);
+}
+
+.sidebar > ul li.active {
+    border-left-color: var(--lighto-link-color);
+}
+
+/* Main Content Backgrounds and Borders */
+.panel,
+.accordion-section,
+.project-overview-columns,
+.table-list,
+.activity-event {
+    background-color: var(--lighto-card-bg);
+    border-color: var(--lighto-card-border);
+}
+
+.table-list-header {
+    background-color: var(--lighto-header-bg);
+    border-color: var(--lighto-border-color);
+}
+
+.table-list-row {
+    border-color: var(--lighto-card-border);
+}
+
+.table-list-row:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue hover for rows */
+}
+
+/* Buttons */
+.btn-blue {
+    background: var(--lighto-button-primary-bg);
+    color: var(--lighto-button-primary-text);
+}
+
+.btn-blue:focus,
+.btn-blue:hover {
+    background: var(--lighto-button-primary-hover-bg);
+}
+
+/* Forms */
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="text"]:not(.input-addon-field),
+textarea,
+select {
+    border-color: var(--lighto-border-color);
+    color: var(--lighto-text-primary);
+    background-color: var(--lighto-bg-primary);
+}
+
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+    border-color: var(--lighto-link-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Task Board */
+.task-board {
+    background-color: var(--lighto-card-bg);
+    border-color: var(--lighto-card-border);
+}
+
+.task-board-category {
+    background-color: var(--lighto-bg-secondary);
+    border-color: var(--lighto-card-border);
+}
+
+.task-tags li {
+    background-color: var(--lighto-bg-secondary);
+    border-color: var(--lighto-border-color);
+    color: var(--lighto-text-secondary);
+}
+
+/* Modal */
+#modal-box {
+    background-color: var(--lighto-card-bg);
+    border-color: var(--lighto-border-color);
+}
+#modal-header {
+    background-color: var(--lighto-header-bg);
+    border-bottom: 1px solid var(--lighto-border-color);
+}
+#modal-content {
+    background-color: var(--lighto-card-bg);
+}
+
+/* Specific elements */
+.form-help {
+    color: var(--lighto-text-secondary);
+}
+
+.activity-event:nth-child(even) {
+    background: var(--lighto-bg-primary);
+}
+
+.activity-event:hover {
+    background: rgba(0, 123, 255, 0.1);
+}
+
+/* Text editor */
+.editor-toolbar {
+    background-color: var(--lighto-header-bg);
+    border-color: var(--lighto-border-color);
+}
+
+.CodeMirror {
+    border-color: var(--lighto-border-color);
+}
+
+/* Overrides for specific Kanboard default elements to ensure lightness */
+.dashboard-project-stats span {
+    color: var(--lighto-text-primary);
+}
+
+.project-overview-column strong {
+    color: var(--lighto-text-primary);
+}
+
+.title-container .title:before {
+    color: var(--lighto-text-secondary);
+}
+
+#task-summary h2:before {
+    color: var(--lighto-text-secondary);
+}
+
+/* Additional specific adjustments for existing styles */
+.sidebar-content .panel, .sidebar-content fieldset {
+    background-color: var(--lighto-card-bg);
+    border: 1px solid var(--lighto-card-border);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.sidebar-content .filter-box {
+    background-color: var(--lighto-card-bg);
+    border: 1px solid var(--lighto-card-border);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.js-chart-task-time-column-rendered {
+    background: var(--lighto-card-bg);
+    border: 1px solid var(--lighto-card-border);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.project-header {
+    background: var(--lighto-header-bg);
+    border: 1px solid var(--lighto-border-color);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.table-list {
+    background-color: var(--lighto-card-bg);
+    border: 1px solid var(--lighto-card-border);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+table {
+    background-color: var(--lighto-card-bg);
+    border: 1px solid var(--lighto-card-border);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+table th {
+    background: var(--lighto-header-bg);
+}
+
+.page-header {
+    background: var(--lighto-header-bg);
+    border: 1px solid var(--lighto-border-color);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
